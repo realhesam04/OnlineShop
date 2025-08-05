@@ -3,7 +3,7 @@
 {% block page_title %}Sign Up {% endblock %}
 
 {% block content %}
-    <form method="post" action="{% url 'signup' %}">
+    <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" value="Sign Up">Sign Up</button>
