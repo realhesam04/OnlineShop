@@ -1,13 +1,17 @@
 {% load account %}
-{% user_display user as user_diplay %}
+{% user_display user as user_display %}
 {% load i18n %}
 {% autoescape off %}
-{% blocktrans with site_name=current_site.name site_domain= current_site.domain %}
+{% with current_site.name as site_name %}
+  {% with current_site.domain as site_domain %}
+    {% blocktrans %}
 
 Hello from {{ site_name }}
 
-if you requested this email, please click on the link below:
+If you requested this email, please click on the link below:
 {{ active_url }}
 
-{% endblocktrans %}
+    {% endblocktrans %}
+  {% endwith %}
+{% endwith %}
 {% endautoescape %}

@@ -12,10 +12,25 @@
 </head>
 <body>
 
-{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+        خوش آمدید {{ user.username }} | <form action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    <button type="submit">خروج</button>
+    </form>
+    {% else %}
+        <span><a href="{% url 'account_login' %}">Login</a>|<a href="{% url 'account_signup' %}">Sign Up</a></span>
+    {% endif %}
+</div>
+
+<div class="container mt-3">
+
+    {% block content %}
 
 
-{% endblock %}
+    {% endblock %}
+
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
