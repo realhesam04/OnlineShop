@@ -12,11 +12,11 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container mt-3">
     {% if user.is_authenticated %}
-        خوش آمدید {{ user.username }} | <form action="{% url 'account_logout' %}">
-    {% csrf_token %}
-    <button type="submit">خروج</button>
+        خوش آمدید {{ user.username }} | <form action="{% url 'account_logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">خروج</button>
     </form>
     {% else %}
         <span><a href="{% url 'account_login' %}">Login</a>|<a href="{% url 'account_signup' %}">Sign Up</a></span>
