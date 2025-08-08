@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 
+{% load static %}
+
 {% block page_title %}{{ product.title }} {% endblock %}
 
 {% block content %}
@@ -90,13 +92,7 @@
                                 <div class="tab-content product-data-tab__content" id="product-tabContent">
                                     <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                         <div class="product-description text-justify">
-                                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                                طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد،
-                                                تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی،
-                                                و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،</p><p>
-                                                و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارس
-                                                ی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-
+                                          <p>{{ product.description|linebreaks }}</p>
                                         </div>
                                     </div>
                                     <div class="tab-pane text-right" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
@@ -128,30 +124,33 @@
                                         <div class="product-reviews">
                                             <h3 class="review__title">۱ نظر برای لباس تابستانی</h3>
                                             <ul class="review__list">
-                                                <li class="review__item">
+                                                {% for comment in product.comments.all %}
+                                                    <li class="review__item">
                                                     <div class="review__container">
                                                         <div class="review__text">
                                                             <div class="d-flex flex-sm-row flex-row">
-                                                                <img src="assets/img/others/comment-1.jpg" alt="Review Avatar" class="review__avatar">
+                                                                <img src="{% static 'img/others/comment-1.jpg' %}" alt="Review Avatar" class="review__avatar">
                                                                 <div>
                                                                     <div class="review__meta">
-                                                                        <strong class="review__author px-4">علی علوی</strong>
+                                                                        <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         <span class="review__dash">-</span>
-                                                                        <span class="review__published-date">۱۲ مرداد ۱۴۰۱</span>
+                                                                        <span class="review__published-date">{{ comment.datetime_created }}</span>
                                                                     </div>
                                                                     <div class="product-rating">
                                                                         <div class="m-0 star-rating star-five">
-                                                                            <span>Rated <strong class="rating">5.00</strong> out of 5</span>
+                                                                            <span>Rated <strong class="rating">{{ comment.stars }}</strong> out of 5</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <p class="review__description text-right px-4">
-                                                                از خرید خودم راضی هستم. واقعا خیلی خوب بسته بندی شده بود و همینطور سر زمان رسید. واقعا نسبت به قیمت خیلی می ارزه.
+                                                               {{ comment.text }}
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </li>
+
+                                                {% endfor %}
                                             </ul>
                                             <div class="review-form-wrapper">
                                                 <div class="row">
