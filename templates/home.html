@@ -5,6 +5,13 @@
 {% block content %}
 
     <h1>Home Page</h1>
+
+    <span><a href="{% url 'account_login' %}">ورود</a>|<a href="{% url 'account_signup' %}">ثبت نام</a> </span> <br>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="خروج">
+    </form>
+
     <a href="{% url 'product_list' %}">لیست محصولات</a> <br>
     <a href="{% url 'aboutus' %}">درباره ما</a>
 
