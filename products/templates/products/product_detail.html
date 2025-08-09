@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
-                            <h1 class="page-title">جزئیات محصول «{{ product.title}}»</h1>
+                            <h1 class="page-title">{% trans 'product detail' %} «{{ product.title}}»</h1>
                         </div>
                     </div>
                 </div>
@@ -53,9 +53,9 @@
                                     {{ product.description }}
                                 </p>
                                 <div class="my-5 py-5 product-price-wrapper mb--25">
-                                    <span class="money text-success">{{product.price}} تومان</span>
+                                    <span class="money text-success">{{product.price}} {% trans '$' %}</span>
                                     <span class="price-separator">-</span>
-                                    <span class="money old-price text-danger">۲۱۰,۰۰۰ تومان</span>
+                                    <span class="money old-price text-danger">۲۱۰,۰۰۰ {% trans '$' %}</span>
                                 </div>
                                 <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                     <div class="quantity-wrapper d-flex justify-content-start">
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">
-                                        اضافه به سبد خرید
+                                        {% trans 'add to the cart' %}
                                     </button>
                                 </div>
                                 <div class="product-footer-meta mt-5 pt-5">
@@ -89,7 +89,7 @@
                                         <span>ویژگی ها</span>
                                     </a>
                                     <a class="m-0 product-data-tab__link nav-link" id="nav-reviews-tab" data-toggle="tab" href="#nav-reviews" role="tab" aria-selected="true">
-                                        <span>نظرات ({{ product.comments.all|only_active_comments|length }})</span>
+                                        <span>{% trans 'comments' %} ({{ product.comments.all|only_active_comments|length }})</span>
                                     </a>
                                 </div>
                                 <div class="tab-content product-data-tab__content" id="product-tabContent">
@@ -125,7 +125,8 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-reviews" role="tabpanel" aria-labelledby="nav-reviews-tab">
                                         <div class="product-reviews">
-                                            <h3 class="review__title">{{ product.comments.all|only_active_comments|length }} نظر برای {{ product.title}}</h3>
+                                            <h3 class="review__title">{{ product.comments.all|only_active_comments|length }}
+                                                {% trans 'Comments for ' %} {{ product.title}}</h3>
                                             <ul class="review__list">
                                                 {% for comment in product.comments.all|only_active_comments %}
                                                         <li class="review__item">
@@ -164,7 +165,7 @@
                                                         <form method="post" action="{% url 'comment_create' product.id %}">
                                                             {% csrf_token %}
                                                             {{ comment_form|crispy }}
-                                                            <input type="submit" value="ارسال">
+                                                            <input type="submit" value="{% trans 'Send' %}">
                                                         </form>
                                                     </div>
                                                 </div>
@@ -193,9 +194,9 @@
                             </div>
                             <div class="footer-widget mb--50 pb--1">
                                 <ul class="footer-menu">
-                                    <li><a href="">درباره ما</a></li>
+                                    <li><a href="">{% trans 'about us' %}</a></li>
                                     <li><a href="">قوانین و مقررات</a></li>
-                                    <li><a href="">تماس با ما</a></li>
+                                    <li><a href="">{% trans 'contact us' %}</a></li>
                                 </ul>
                             </div>
                             <div class="footer-widget">
@@ -226,7 +227,7 @@
             <div class="mini-cart-wrapper">
                 <a href="" class="btn-close"><i class="flaticon flaticon-cross"></i></a>
                 <div class="mini-cart-inner">
-                    <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">سبد خرید</h3>
+                    <h3 class="mini-cart__heading mb--40 mb-lg--30 text-right">{% trans 'cart' %}</h3>
                     <div class="mini-cart__content">
                         <ul class="mini-cart__list text-right">
                             <li class="mini-cart__product d-flex justify-content-between">

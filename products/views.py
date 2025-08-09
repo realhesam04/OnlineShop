@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext_lazy as _
 
 from .models import Product, Comment
 from .forms import CommentForm
