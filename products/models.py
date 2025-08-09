@@ -31,8 +31,8 @@ class Comment(models.Model):
 
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE,related_name='comments')
-    text = models.TextField()
-    stars = models.CharField(max_length=10,choices=PRODUCT_STARS)
+    text = models.TextField(verbose_name='متن کامنت')
+    stars = models.CharField(max_length=10,choices=PRODUCT_STARS, verbose_name='امتیاز شما به این محصول:')
     active = models.BooleanField(default=True)
 
     datetime_create = models.DateTimeField(auto_now_add=True)
