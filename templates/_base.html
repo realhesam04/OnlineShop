@@ -32,6 +32,16 @@
 </head>
 <body dir="rtl">
 
+<!-- Preloader Start -->
+<div class="ShoppingYar-preloader active">
+    <div class="ShoppingYar-preloader-inner h-100 d-flex align-items-center justify-content-center">
+        <div class="ShoppingYar-child ShoppingYar-bounce1"></div>
+        <div class="ShoppingYar-child ShoppingYar-bounce2"></div>
+        <div class="ShoppingYar-child zuka-bounce3"></div>
+    </div>
+</div>
+<!-- Preloader End -->
+
 <div class="container">
     {% for message in messages %}
         <div class="alert alert{{ message.tags }}">{{ message }}</div>
@@ -145,15 +155,43 @@
 
     {% endblock %}
 
+    <!-- Footer Start-->
+    <footer class="footer">
+        <div class="footer-top bg-color ptb--50" data-bg-color="#f6f6f6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <div class="footer-widget mb--50">
+                            <div class="textwidget">
+                                <img src="assets/img/codingyar_logo.png" alt="Logo">
+                            </div>
+                        </div>
+                        <div class="footer-widget mb--50 pb--1">
+                            <ul class="footer-menu">
+                                <li><a href="">درباره ما</a></li>
+                                <li><a href="">قوانین و مقررات</a></li>
+                                <li><a href="">تماس با ما</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-widget">
+                            Codingyar.com © | all rights reserved
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End-->
+
 </div>
 
 <!-- ************************* JS Files ************************* -->
 
 <!-- jQuery JS -->
-<script src="{% static 'js/vendor.js' %}"></script>
+<script src="{% static 'js/vendor.js' %}" type=""></script>
 
 <!-- Main JS -->
-<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/main.js' %}" type=""></script>
 
 
 {#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"#}
