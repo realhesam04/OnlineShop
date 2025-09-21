@@ -1,5 +1,9 @@
 from django.contrib import admin
 
+from django_jalali.admin.filters import JDateFieldListFilter
+
+import django_jalali.admin as jadmin
+
 from .models import Product, Comment
 
 
@@ -20,3 +24,4 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['author','product','text','stars','active','datetime_modified',]
+

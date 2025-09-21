@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+from django_jalali.db import models as jmodels
 
 
 class Product(models.Model):
@@ -12,7 +14,7 @@ class Product(models.Model):
     image = models.ImageField(verbose_name=_('Product Image'), upload_to='products/product_cover/', blank=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_modified = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.title
@@ -37,8 +39,9 @@ class Comment(models.Model):
     stars = models.CharField(max_length=10,choices=PRODUCT_STARS, verbose_name=_('Rate This Product:'))
     active = models.BooleanField(default=True)
 
-    datetime_create = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
+    datetime_create = jmodels.jDateTimeField(auto_now_add=True)
+    datetime_modified = jmodels.jDateTimeField(auto_now=True)
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.product.id])
+
