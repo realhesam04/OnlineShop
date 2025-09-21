@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.account',
     # reosetta
     'rosetta',
+    'ckeditor',
 
     # local apps
     'accounts',
@@ -181,6 +182,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media
 MEDIA_URL = '/media/'

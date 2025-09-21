@@ -5,10 +5,13 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 from django_jalali.db import models as jmodels
 
+from ckeditor.fields import RichTextField
+
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = RichTextField()
+    short_description = models.TextField(max_length=300)
     price = models.PositiveIntegerField(default=0)
     active = models.BooleanField(default=True)
     image = models.ImageField(verbose_name=_('Product Image'), upload_to='products/product_cover/', blank=True)
