@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-24 09:17+0330\n"
+"PO-Revision-Date: 2025-09-24 09:18+0330\n"
+"Last-Translator:   <hesamehsanimoghaddam2004@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\templates\orders\order_detail.html:11
+msgid "Order Details"
+msgstr "جزیات سفارش"
+
+#: .\templates\orders\order_detail.html:14
+msgid "Order"
+msgstr "سفارش"
+
+#: .\templates\orders\order_detail.html:86
+msgid "your order"
+msgstr "سفارش شما"
+
+#: .\templates\orders\order_detail.html:92
+msgid "product"
+msgstr "محصول"
+
+#: .\templates\orders\order_detail.html:93
+msgid "final price"
+msgstr "قیمت نهایی"
+
+#: .\templates\orders\order_detail.html:102
+#: .\templates\orders\order_detail.html:110
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\orders\order_detail.html:109
+msgid "total"
+msgstr "مجموع"
