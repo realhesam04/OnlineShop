@@ -13,7 +13,7 @@ def order_create_view(request):
     order_form = OrderForm()
     cart = Cart(request)
     if len(cart) == 0:
-        messages.warning(request, _('Your cannot proceed to checkout because your cart is empty.'))
+        messages.warning(request, _('You cannot proceed to checkout because your cart is empty.'))
         return redirect('products:product_list')
 
     if request.method == 'POST':
