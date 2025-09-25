@@ -11,5 +11,3 @@ def payment_process(request):
     
     toman_total_price = order.get_total_price()
     rial_total_price = toman_total_price * 10
-
-    
