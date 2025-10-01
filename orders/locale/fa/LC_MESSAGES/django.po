@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-24 11:43+0330\n"
+"POT-Creation-Date: 2025-09-30 21:14+0330\n"
 "PO-Revision-Date: 2025-09-24 09:18+0330\n"
 "Last-Translator:   <hesamehsanimoghaddam2004@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,26 @@ msgstr "تغییر داده شده"
 msgid "Order Details"
 msgstr "جزیات سفارش"
 
+#: .\templates\orders\order_detail.html:54
+msgid "name"
+msgstr "نام"
+
+#: .\templates\orders\order_detail.html:58
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: .\templates\orders\order_detail.html:64
+msgid "address"
+msgstr "آدرس کامل"
+
+#: .\templates\orders\order_detail.html:70
+msgid "phone number"
+msgstr "شماره همراه"
+
+#: .\templates\orders\order_detail.html:76
+msgid "your notes"
+msgstr "سفارش شما"
+
 #: .\templates\orders\order_detail.html:80
 msgid "Submit"
 msgstr "ثبت"
@@ -84,12 +104,11 @@ msgid "total"
 msgstr "مجموع"
 
 #: .\views.py:16
-msgid "Your cannot proceed to checkout because your cart is empty."
+msgid "You cannot proceed to checkout because your cart is empty."
 msgstr "نمیتوانید فرایند خرید را کامل کنید چون سبد خرید شما خالی است."
 
-#: .\views.py:39
-msgid "Your order has successfully placed."
-msgstr "سفارش شما با موفقیت ثبت شد"
+#~ msgid "Your order has successfully placed."
+#~ msgstr "سفارش شما با موفقیت ثبت شد"
 
 #~ msgid "Order"
 #~ msgstr "سفارش"
